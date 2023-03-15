@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZEENnEYLd1p4gH4f6MvJX4"
+          crossorigin="anonymous">
+</head>
+<body>
+
+
+
+    <div class="container my-4">
+        <div class="row">
+            
+            <div class="col-md-4">
+                <img  src="http://cdn.onlinewebfonts.com/svg/img_550783.png" alt="Image description" class="circular-image"/>
+                <div class="card mb-4">
+                  
+
+                    <div class="card-header">
+                        My Account
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#">Account Information</a></li>
+                        <li class="list-group-item"><a href="#">Order History</a></li>
+                        <li class="list-group-item"><a href="#">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Account Information
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea class="form-control" id="address" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn  bg-warning">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Order History
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Order Total</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
