@@ -11,6 +11,7 @@ import { AccounttypeComponent } from './accounttype/accounttype.component';
 import { CardComponent } from './card/card.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AccounttypeComponent,
     CardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    VendorProfileComponent
   ],
   imports: [
     BrowserModule,

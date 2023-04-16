@@ -104,15 +104,14 @@
                 <input formControlName="email" style="border: 2px solid gray;" type="email" id="form3Example3" class="form-control form-control-lg"
                   placeholder="Enter a valid email address" />
                   <div class="alert alert-danger" *ngIf="control.controls['email'].invalid && control.controls['email'].touched">
-
                     <div *ngIf="control.controls['email'].errors['required']">
-                      required input
-                </div>
-                <div *ngIf="control.controls['email'].errors['email']">
-                  email input
-            </div>
+                       required input
+                    </div>
+                    <div *ngIf="control.controls['email'].errors['email']">
+                      email input
+                   </div>
                   </div>
-              </div>
+            </div>
     
               <!-- Password input -->
               <div class=" mb-3">
