@@ -6,11 +6,11 @@ filename = '';
 const mystorage = multer.diskStorage({
 
     destination:'./uploads',
-    filename : (req,file,redirect)=>{
+    filename: (req, file , redirect)=>{
         let date = Date.now();
-        let fl= date + '.' +file.mimetype.split('/')[1];
+        let fl= date + '.' + file.mimetype.split('/')[1];
         redirect(null, fl);
-        filename=fl;
+        filename = fl;
     }
 })
 const upload = multer({storage:mystorage})
@@ -52,8 +52,9 @@ router.get('/all', (req,res)=>{
     )
 })
 router.delete('/delete/:id', (req,res)=>{
-   let myId = req.params.id;
-   Product.findByIdAndDele({_id: myId})
+    id = req.params.id;
+
+   Product.findOneAndDelete({_id: id})
    .then(
     (deletedProduct)=>{
         res.status(200).send(deletedProduct);
@@ -67,15 +68,15 @@ router.delete('/delete/:id', (req,res)=>{
 
 })
 router.put('/update/:id', upload.any('image') , (req,res)=>{
-    let id = req.params.id;
-    let data= req.body;
-    
-    // data.tags = data.tags.split(',');
+     id = req.params.id;
+     data= req.body;
+     data.tags = data.tags.split(",");
+
     if (filename.length > 0){
         data.image = filename;
     }
  
-    Product.findByIdAndUpdate({_id: id},data, {status: true})
+    Product.findByIdAndUpdate({_id: id},data)
     .then(
         (product)=>{
         filename= '';

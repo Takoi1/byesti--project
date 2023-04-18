@@ -35,13 +35,13 @@
             <a class="nav-link" href="#"> Spare parts</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/vendor">vendor</a>
+            <a class="nav-link" routerLink="/vendor">vendor</a>
           </li>
         </ul>
         <!-- Left links -->
       </div>
       <!-- Collapsible wrapper -->
-      <input type="search" id="srchtxtsticky" name="srchtxtsticky" autocomplete="off" class="srpt editable-content not-editable search-text-box searchBar-border searchBar-bg searchBar-text button form-control-sm " placeholder="Search" value="" fdprocessedid="aeoozf" style="width: 300px;">
+      <input [(ngModel)]="listproducts" type="search" id="srchtxtsticky" name="srchtxtsticky" autocomplete="off" class="srpt editable-content not-editable search-text-box searchBar-border searchBar-bg searchBar-text button form-control-sm " placeholder="Search" value="" fdprocessedid="aeoozf" style="width: 300px;">
       <!-- Right elements -->
       <div class="d-flex align-items-center">
         <!-- Icon -->
