@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { SiginComponent } from './sigin/sigin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 const routes: Routes = [
 
@@ -23,10 +23,9 @@ const routes: Routes = [
   },
   {
     path:"user",component:UserProfileComponent
-  }
-  ,
+  },
   {
-    path:"vendor",component:VendorProfileComponent
+    path:"vendor",component:VendorComponent
   }
 ];
 

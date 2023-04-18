@@ -5,7 +5,7 @@ const app = express()
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
-
+const productRoutes = require('./routes/product')
 
 // DB Connection
 mongoose.set('strictQuery', false); 
@@ -36,6 +36,9 @@ const userRoutes = require("./routes/user")
 
 // use routes
 app.use("/api",userRoutes)
+app.use("/product",productRoutes)
+app.use("/getimage",express.static('./uploads'));
+
 
 
 const port = process.env.PORT || 5000

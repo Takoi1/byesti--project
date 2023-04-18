@@ -26,13 +26,10 @@ const userSchema = mongoose.Schema({
             unique:true
         },
         liste:{
-            type:String,
+            type:Object,
             required:true,
-            trim:true,
-            enum: ['admin', 'customer', 'business'], 
-            default: 'client'
+            trim:true
             },
-             
         
 
 }, {timestamp : true})

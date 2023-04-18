@@ -11,7 +11,8 @@ import { AccounttypeComponent } from './accounttype/accounttype.component';
 import { CardComponent } from './card/card.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
+import { VendorComponent } from './vendor/vendor.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VendorProfileComponent } from './vendor-profile/vendor-profile.componen
     AccounttypeComponent,
     CardComponent,
     UserProfileComponent,
-    VendorProfileComponent
+    VendorComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
