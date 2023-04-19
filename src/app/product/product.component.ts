@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Component({
   selector: 'app-product',
@@ -14,10 +15,10 @@ export class ProductComponent implements OnInit{
     quantite:'',
     price:'',
     Marque_voiture: '',
-    image: ''
+    image: ""
   }
   products: any;
-  constructor(private _data:DataService){}
+  constructor(private _data:DataService,private imageCompress:NgxImageCompressService){}
   ngOnInit(): void{
     this._data.all().subscribe({
       next:(res)=>{
@@ -29,9 +30,46 @@ export class ProductComponent implements OnInit{
       }
     })
   }
+  
+  // getFileUrl(file: File, quality: number): Promise<string> {
+  //   return new Promise<string>((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       const base64Image = reader.result as string;
+  //       this.imageCompress.compressFile(base64Image, -1, quality, quality).then(
+  //         result => {
+  //           resolve(result);
+  //         },
+  //         error => {
+  //           reject(error);
+  //         }
+  //       );
+  //     };
+  //   });
+  // }
+  
+
+  // // one file 
+  // onFileSelectedd(data: any, quality: number) {
+  //   const file: File = data.target.files[0];
+  //   this.getFileUrl(file, quality).then(
+  //     url => {
+  //       this.imagePath=url
+  //       console.log(url);
+  //     },
+  //     error => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
+
+
+
+
 
   save(){
-      this._data.create(this.product).subscribe({
+        this._data.create(this.product).subscribe({
         next: (res)=>{
           this.ngOnInit();
           console.log(res)

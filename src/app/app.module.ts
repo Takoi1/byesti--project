@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VendorComponent } from './vendor/vendor.component';
 import { ProductComponent } from './product/product.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxImageCompressService} from 'ngx-image-compress';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
