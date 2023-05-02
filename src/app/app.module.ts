@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VendorComponent } from './vendor/vendor.component';
 import { ProductComponent } from './product/product.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CardComponent,
     UserProfileComponent,
     VendorComponent,
-    ProductComponent
+    ProductComponent,
+    UpdateProductComponent,
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,

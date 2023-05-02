@@ -6,6 +6,8 @@ import { SiginComponent } from './sigin/sigin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VendorComponent } from './vendor/vendor.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
+import { NotFoundError } from 'rxjs';
 
 const routes: Routes = [
 
@@ -26,6 +28,9 @@ const routes: Routes = [
   },
   {
     path:"vendor",component:VendorComponent
+  },
+  {
+    path:"detailProduct/:id",component:DetailProductComponent
   }
 ];
 

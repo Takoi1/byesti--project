@@ -26,7 +26,7 @@ router.post("/create", upload.any("image"), (req, res) => {
       product
         .save()
         .then((savedProduct) => {
-          filename = "";
+          filename = req.body?.image;
           res.status(200).send(savedProduct);
         })
         .catch((err) => {
@@ -37,7 +37,20 @@ router.post("/create", upload.any("image"), (req, res) => {
     }
   });
 
+  router.get('/getbyid/:id' , (req,res)=>{
+    id = req.params.id;
 
+   Product.findOne({_id: id})
+   .then(
+       (product)=>{
+       res.status(200).send(product);
+   })
+   .catch(
+       (err)=>{
+       res.status(400).send(err);
+   }
+   )
+})
 
 router.get('/all', (req,res)=>{
     Product.find({})
@@ -67,20 +80,16 @@ router.delete('/delete/:id', (req,res)=>{
    )
 
 })
-router.put('/update/:id', upload.any('image') , (req,res)=>{
+router.put('/update/:id' , (req,res)=>{
      id = req.params.id;
      data= req.body;
-     data.tags = data.tags.split(",");
 
-    if (filename.length > 0){
-        data.image = filename;
-    }
+  
  
     Product.findByIdAndUpdate({_id: id},data)
     .then(
-        (product)=>{
-        filename= '';
-        res.status(200).send(product);
+        (update)=>{
+        res.status(200).send(update);
     })
     .catch(
         (err)=>{
@@ -88,6 +97,7 @@ router.put('/update/:id', upload.any('image') , (req,res)=>{
     }
     )
 })
+
 
 
 module.exports = router

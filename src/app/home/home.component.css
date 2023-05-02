@@ -8,13 +8,15 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
 }
 .price {
-color: #263238;
+color: red;
 font-size: 24px;
 }
+.nom {
+  color: #d7851b;
+  font-size: 35px;
+  }
+  
 
-.card-title {
-color:#373826
-}
 
 .sale {
 color: #E53935

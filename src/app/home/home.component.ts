@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { DataService } from '../data.service';
 export class HomeComponent implements OnInit{
   products: any;
   listproducts:any;
-  constructor(private _data:DataService){}
+  constructor(private _data:DataService,private route:Router){}
 ngOnInit(): void {
   this._data.all().subscribe(
     res =>{
@@ -20,5 +21,7 @@ ngOnInit(): void {
     }
   );
 }
-
+getProductById(id:any){
+  this.route.navigate(['detailProduct/'+id])
+}
 }
