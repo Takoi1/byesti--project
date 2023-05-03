@@ -6,7 +6,6 @@ import { SiginComponent } from './sigin/sigin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VendorComponent } from './vendor/vendor.component';
-<<<<<<< HEAD
 import { GuardroleGuard } from './guardrole.guard';
 // import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 // import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
@@ -15,10 +14,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UnhotorizedComponent } from './unhotorized/unhotorized.component';
 import { CompanyComponent } from './company/company.component';
 // import { DashboardAdminCo:mponent } from './admin/dashboard-admin/dashboard-admin.component';
-=======
 import { DetailProductComponent } from './product/detail-product/detail-product.component';
 import { NotFoundError } from 'rxjs';
->>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
 
 const routes: Routes = [
 
@@ -38,7 +35,6 @@ const routes: Routes = [
     path:"user/:id",component:UserProfileComponent
   },
   {
-<<<<<<< HEAD
     path:"vendor",component:VendorComponent,canActivate: [GuardroleGuard],data: { requiredRole: ['business'] } 
   },
 
@@ -58,15 +54,13 @@ const routes: Routes = [
     path:"company",component:CompanyComponent
   },
 
-  {
-    path:"**",component:NotFoundComponent
-=======
-    path:"vendor",component:VendorComponent
-  },
+  // path:"vendor",component:VendorComponent
   {
     path:"detailProduct/:id",component:DetailProductComponent
->>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
-  }
+  },
+  {
+    path:"**",component:NotFoundComponent
+  },
 ];
 
 @NgModule({

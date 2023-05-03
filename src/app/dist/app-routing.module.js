@@ -23,6 +23,7 @@ var not_found_component_1 = require("./not-found/not-found.component");
 var unhotorized_component_1 = require("./unhotorized/unhotorized.component");
 var company_component_1 = require("./company/company.component");
 // import { DashboardAdminCo:mponent } from './admin/dashboard-admin/dashboard-admin.component';
+var detail_product_component_1 = require("./product/detail-product/detail-product.component");
 var routes = [
     {
         path: "signin", component: sigin_component_1.SiginComponent
@@ -57,9 +58,13 @@ var routes = [
     {
         path: "company", component: company_component_1.CompanyComponent
     },
+    // path:"vendor",component:VendorComponent
+    {
+        path: "detailProduct/:id", component: detail_product_component_1.DetailProductComponent
+    },
     {
         path: "**", component: not_found_component_1.NotFoundComponent
-    }
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

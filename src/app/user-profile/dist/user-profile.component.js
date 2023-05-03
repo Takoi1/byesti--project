@@ -58,13 +58,6 @@ var UserProfileComponent = /** @class */ (function () {
         return this.test = false;
     };
     UserProfileComponent.prototype.updateP = function () {
-        console.log();
-        this.service.updateUser(this.myForm.value, this.actroute.snapshot.paramMap.get('id')).subscribe(function (data) {
-            console.log(data);
-        }),
-            function (error) {
-                console.log(error);
-            };
     };
     UserProfileComponent.prototype.changeContent = function () {
         this.showContent = !this.showContent;

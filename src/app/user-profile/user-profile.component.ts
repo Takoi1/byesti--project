@@ -63,13 +63,7 @@ navchange(){
     matricule:new FormControl(),
   })
     updateP(){
-      console.log()
-this.service.updateUser(this.myForm.value,this.actroute.snapshot.paramMap.get('id')).subscribe((data:any)=>{
-  console.log(data)
-}),
-(error:any)=>{
-console.log(error)
-}
+    
     }
     
     showContent: boolean = false;

@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-const mongoose = require('mongoose');
-const { CartItem} = require("../model/product")
-const productSchema = new mongoose.Schema({
-
-  reference: String,
-  marque: String,
-  date: Date,
-  quantite: Number,
-  price: Number,
-  marque_voiture: String,
-
-  status: {
-    type: Boolean,
-=======
 const mongoose = require('mongoose')
 const Product = mongoose.model('Product',{
 
@@ -46,7 +31,6 @@ const Product = mongoose.model('Product',{
     },  
     status: {
     type:Boolean,
->>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
     default: false
   },
   
@@ -54,8 +38,7 @@ const Product = mongoose.model('Product',{
   tags: [String]
 });
 
+// const Product = mongoose.model('Product', productSchema)
 
 
-module.exports = {
-  Product: mongoose.model('Product', productSchema),
-};
+module.exports = Product;
