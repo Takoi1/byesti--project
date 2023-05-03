@@ -16,6 +16,7 @@ const mystorage = multer.diskStorage({
 const upload = multer({storage:mystorage})
 
 
+<<<<<<< HEAD
 // router.post("/create", upload.any("image"), (req, res) => {
 //     try {
 //       let data = req.body;
@@ -36,8 +37,43 @@ const upload = multer({storage:mystorage})
 //       console.log(error);
 //     }
 //   });
+=======
+router.post("/create", upload.any("image"), (req, res) => {
+    try {
+      let data = req.body;
+      let product = new Product(data);
+      product.date = new Date();
+      product.image = filename;
+      product.tags = data.tags?.split(",");
+      product
+        .save()
+        .then((savedProduct) => {
+          filename = req.body?.image;
+          res.status(200).send(savedProduct);
+        })
+        .catch((err) => {
+          res.status(400).send(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+>>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
 
+  router.get('/getbyid/:id' , (req,res)=>{
+    id = req.params.id;
 
+   Product.findOne({_id: id})
+   .then(
+       (product)=>{
+       res.status(200).send(product);
+   })
+   .catch(
+       (err)=>{
+       res.status(400).send(err);
+   }
+   )
+})
 
 router.get('/all', (req,res)=>{
     Product.find({})
@@ -67,20 +103,16 @@ router.delete('/delete/:id', (req,res)=>{
    )
 
 })
-router.put('/update/:id', upload.any('image') , (req,res)=>{
+router.put('/update/:id' , (req,res)=>{
      id = req.params.id;
      data= req.body;
-     data.tags = data.tags.split(",");
 
-    if (filename.length > 0){
-        data.image = filename;
-    }
+  
  
     Product.findByIdAndUpdate({_id: id},data)
     .then(
-        (product)=>{
-        filename= '';
-        res.status(200).send(product);
+        (update)=>{
+        res.status(200).send(update);
     })
     .catch(
         (err)=>{
@@ -88,6 +120,7 @@ router.put('/update/:id', upload.any('image') , (req,res)=>{
     }
     )
 })
+
 
 
 module.exports = router

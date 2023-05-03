@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VendorComponent } from './vendor/vendor.component';
 import { ProductComponent } from './product/product.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+<<<<<<< HEAD
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { CookieService } from 'ngx-cookie-service';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
@@ -25,6 +26,10 @@ import { FooterComponent } from './footer/footer.component';
 import { CompanyComponent } from './company/company.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 
+=======
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
+>>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +42,7 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
     UserProfileComponent,
     VendorComponent,
     ProductComponent,
+<<<<<<< HEAD
     ManageProductsComponent,
     // ManageUsersComponent,
     ManageCommandsComponent,
@@ -45,6 +51,10 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
     FooterComponent,
     CompanyComponent,
     // DashboardAdminComponent
+=======
+    UpdateProductComponent,
+    DetailProductComponent
+>>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,11 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
     HttpClientModule,
     Ng2SearchPipeModule
   ],
+<<<<<<< HEAD
   providers: [NgxImageCompressService,CookieService],
+=======
+  providers: [],
+>>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
   bootstrap: [AppComponent]
 })
 export class AppModule { }

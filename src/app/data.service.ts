@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,12 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   urls = 'http://localhost:5000/product/';
+
   constructor(private http : HttpClient) {  } 
 
-  create(product: any){
-    return this.http.post(this.urls + 'create' ,product);
+  create(product:any):Observable<any>{
+
+    return this.http.post<any>("http://localhost:5000/product/create",product);
   }
 
   all(){
@@ -24,8 +27,13 @@ export class DataService {
   update(id: any){
     return this.http.put(this.urls + 'update/' + id, null);
   }
+<<<<<<< HEAD
   updateUser(data: any,id:any){
     return this.http.put("http://localhost:5000/api/updateuser/"+id,data);
+=======
+  getProductById(id: any){ 
+    return this.http.get(this.urls + 'getbyid/'+id);
+>>>>>>> 3d113f3ceca4c0f7f0f3edfb40f75f361d5f85e7
   }
 }
 

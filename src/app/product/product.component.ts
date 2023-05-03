@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { NgxImageCompressService } from 'ngx-image-compress';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -11,14 +11,23 @@ export class ProductComponent implements OnInit{
 
   product = {
     reference:'',
+    nom:'',
     marque:'',
-    quantite:'',
-    price:'',
-    Marque_voiture: '',
-    image: ""
+    quantite:0,
+    price:0,
+    image:File,
+    marque_voiture: ''
   }
+  
   products: any;
-  constructor(private _data:DataService,private imageCompress:NgxImageCompressService){}
+
+  imageFile: any;
+  onFileSelected(event: any){
+    console.log(event.target?.files[0])
+    this.imageFile = event.target.files[0];
+
+}
+  constructor(private _data:DataService){}
   ngOnInit(): void{
     this._data.all().subscribe({
       next:(res)=>{
@@ -30,56 +39,67 @@ export class ProductComponent implements OnInit{
       }
     })
   }
-  
-  // getFileUrl(file: File, quality: number): Promise<string> {
-  //   return new Promise<string>((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => {
-  //       const base64Image = reader.result as string;
-  //       this.imageCompress.compressFile(base64Image, -1, quality, quality).then(
-  //         result => {
-  //           resolve(result);
-  //         },
-  //         error => {
-  //           reject(error);
-  //         }
-  //       );
-  //     };
-  //   });
-  // }
-  
+  myForm=new FormGroup({
+    reference:new FormControl(),
+    nom:new FormControl(),
 
-  // // one file 
-  // onFileSelectedd(data: any, quality: number) {
-  //   const file: File = data.target.files[0];
-  //   this.getFileUrl(file, quality).then(
-  //     url => {
-  //       this.imagePath=url
-  //       console.log(url);
-  //     },
-  //     error => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
+    marque:new FormControl(),
 
+    quantite:new FormControl(),
 
+    price:new FormControl(),
 
+    marque_voiture:new FormControl(),
 
+    image:new FormControl(File),
 
-  save(){
-        this._data.create(this.product).subscribe({
-        next: (res)=>{
-          this.ngOnInit();
-          console.log(res)
-        },
-        error: (err)=>{
-          console.log(err)
-
-        }     
   })
+  sendData(){
+   let product = {
+      reference:this.myForm.value.reference,
+      nom:this.myForm.value.nom,
+      marque: this.myForm.value.marque,
+      quantite: this.myForm.value.quantite,
+      price: this.myForm.value.price,
+      image:this.imageFile,
+      marque_voiture: this.myForm.value.marque_voiture
+    }
+
+    let formData=new  FormData();
+    formData.append("reference" ,this.myForm.value.reference)
+   formData.append("nom" ,this.myForm.value.nom)
+   formData.append("marque" ,this.myForm.value.marque)
+    formData.append("quantite" ,this.myForm.value.quantite)
+    formData.append("price" ,this.myForm.value.price)
+    formData.append("image" ,this.imageFile)
+   formData.append("marque_voiture" ,this.myForm.value.marque_voiture)
+console.log(product);
+ this._data.create(formData).subscribe((data:any)=>{
+  console.log(data);
+ },(error:any)=>{
+  console.log(error);
+ }) 
 }
+  // save(){
+  
+
+  //     this._data.create(this.myForm.value).subscribe({
+  //       next: (res)=>{
+          
+  //         console.log(res)
+  //       },
+  //       error: (err)=>{
+  //         console.log(err)
+
+  //       }     
+  // })
+  
+
+
+  
+
+
+//}
 delete(id: any){
 
   this._data.delete(id).subscribe({
@@ -108,4 +128,14 @@ done(id: any){
 })
 }
 
+getdata(reference:string,nom:string,marque:string,quantite:number,price:number,marque_voiture:string){
+  this.product.reference=reference
+  this.product.nom=nom
+  this.product.marque=marque
+  this.product.quantite=quantite
+  this.product.price=price
+  this.product.marque_voiture=marque_voiture
+  console.log(this.product)
+
+}
 }

@@ -73,22 +73,22 @@
     
   <!-- Products -->
     <section>
-    <div class="text-center">
+    <div class="text-center" >
       <div class="row">
 
-        <div *ngFor="let item of products | filter:listproducts" class="col-lg-3 col-md-6 mb-4">
-          <div class="card">
+        <div *ngFor="let item of products | filter:listproducts" class="col-lg-3 col-md-6 mb-4" >
+          <div class="card"  >
             <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
               data-mdb-ripple-color="light">
 
-              <img class="w-100"  [src]="'http://127.0.0.1:5000/getimage/'+ item.image "/>
+              <img class="w-100"   width="200" height="300" [src]="'http://127.0.0.1:5000/getimage/'+ item.image "/>
               <a href="#!">
                 <div class="mask">
                   <div class="d-flex justify-content-start align-items-end h-100">
                     <h5>
                     
                       <span *ngIf="item.quantite > 0" class="badge bg-success ms-2">En Stock</span>
-                      <span *ngIf="item.quantite <= 0"class="badge bg-warning ms-2">hors stock</span>
+                      <span *ngIf="item.quantite <= 0"class="badge bg-warning ms-2">Hors stock</span>
                     </h5>
                   </div>
                 </div>
@@ -98,18 +98,25 @@
               </a>
             </div>
             <div class="card-body">
-              <a  class="text-reset">
-                <h5 class="card-title mb-2">{{item.marque}}</h5>
+              <!-- <a  class="text-reset">
+                <h5 class=" mb-2 marque">{{item.marque}}</h5>
+              </a> -->
+              <a class="mb-2 nom " >
+                <p> {{item.nom}} </p>
               </a>
               <a class="text-reset ">
-                <p> {{item.reference}} </p>
+                <p> {{item.marque_voiture}} </p>
               </a>
               <h6 class="mb-3 price">{{item.price}} DT</h6>
+
             </div>
+            <!-- <button class="btn btn-info" (click)="getProductById(item._id)">Detadfdffils</button> -->
+            <button class="btn btn-info"  [routerLink]="['/detailProduct', item._id]" >Detail produit</button>
+
           </div>
+
         </div>
   
-        
       </div>
   
      
