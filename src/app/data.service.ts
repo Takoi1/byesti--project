@@ -24,4 +24,11 @@ export class DataService {
   update(id: any){
     return this.http.put(this.urls + 'update/' + id, null);
   }
+  updateUser(data: any,id:any){
+    return this.http.put("http://localhost:5000/api/updateuser/"+id,data);
+  }
 }
+
+
+
+

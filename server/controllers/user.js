@@ -5,7 +5,7 @@ const config=require('../config')
 
 
 exports.signup = (req, res, next) => {
-  const { firstname,lastname, email, password,liste } = req.body;
+  const { firstname,lastname, email, password,liste,matricule } = req.body;
 
   User.findOne({ email }, (err, existingUser) => {
     if (err) {
@@ -13,10 +13,10 @@ exports.signup = (req, res, next) => {
     }
 
     if (existingUser) {
-      return res.status(422).json({ message: 'Email is already registered' });
+      return res.status(400).json({ message: 'Email is already registered' });
     }
 
-    const user = new User({ firstname,lastname, email, password ,liste});
+    const user = new User({ firstname,lastname, email, password ,liste,matricule});
     user.save((err, newUser) => {
       if (err) {
         return next(err);
@@ -50,12 +50,12 @@ exports.signin=( (req, res, next) => {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
 
-      const token = jwt.sign({ id: user._id }, config.secretKey);
+      const token = jwt.sign({ user: user }, config.secretKey);
       res.json({ 
    
         message:"logged in",
         user, token });
     });
-    console.log("logged in")
+    //console.log("logged in", {token})
   });
 })

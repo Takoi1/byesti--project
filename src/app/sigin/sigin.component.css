@@ -8,11 +8,29 @@ background: #eee;
 .h-custom {
 height: calc(100% - 73px);
 }
-@media (max-width: 450px) {
+@media (max-width: 1500px) {
 .h-custom {
 height: 100%;
 }
+
 }
+@media only screen and (min-width: 100px) {
+    
+
 .img-fluid{
-    width: 70%;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    
 }
+}
+@media only screen and (min-width: 1000px) {
+    
+
+    .img-fluid{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        
+    }
+    }

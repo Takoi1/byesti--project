@@ -121,4 +121,7 @@ body {
     display: block; /* Set the image to be a block-level element */
     margin: auto; /* Center the image horizontally */
   }
+ .info{
+  display: flex;
   
+ }

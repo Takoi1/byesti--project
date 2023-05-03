@@ -15,7 +15,13 @@
     
               <div class="divider d-flex align-items-center my-4">
               </div>
-    
+              <div class="alert alert-danger" role="alert" *ngIf="error!=''">
+                {{error}}
+              </div>
+               
+              <div class="alert alert-success" role="alert" *ngIf="res!=''">
+                {{res}}
+              </div>
               <!-- Email input -->
               <div class=" mb-4">
                 <input formControlName="email" style="border: 2px solid gray;" type="email" id="form3Example3" class="form-control form-control-lg"
@@ -36,6 +42,7 @@
                 <input formControlName="password" style="border: 2px solid gray;" type="password" id="form3Example4" class="form-control form-control-lg"
                   placeholder="Enter password" />
               </div>
+            
     
               <div class="d-flex justify-content-between align-items-center">
                 <!-- Checkbox -->

@@ -16,26 +16,26 @@ const mystorage = multer.diskStorage({
 const upload = multer({storage:mystorage})
 
 
-router.post("/create", upload.any("image"), (req, res) => {
-    try {
-      let data = req.body;
-      let product = new Product(data);
-      product.date = new Date();
-      product.image = filename;
-      product.tags = data.tags?.split(",");
-      product
-        .save()
-        .then((savedProduct) => {
-          filename = "";
-          res.status(200).send(savedProduct);
-        })
-        .catch((err) => {
-          res.status(400).send(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  });
+// router.post("/create", upload.any("image"), (req, res) => {
+//     try {
+//       let data = req.body;
+//       let product = new Product(data);
+//       product.date = new Date();
+//       product.image = filename;
+//       product.tags = data.tags?.split(",");
+//       product
+//         .save()
+//         .then((savedProduct) => {
+//           filename = "";
+//           res.status(200).send(savedProduct);
+//         })
+//         .catch((err) => {
+//           res.status(400).send(err);
+//         });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
 
 
 
