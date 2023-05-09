@@ -25,8 +25,9 @@ const userSchema = mongoose.Schema({
             required:true,
             unique:true
         },
+        matricule:String,
         liste:{
-            type:Object,
+            type:String,
             required:true,
             trim:true
             },

@@ -31,3 +31,7 @@ export class DataService {
     return this.http.get(this.urls + 'getbyid/'+id);
   }
 }
+
+
+
+

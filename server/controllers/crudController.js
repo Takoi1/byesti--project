@@ -41,6 +41,8 @@ exports.updateOne = (Model) =>
 exports.deleteOne = (Model) =>
   asyncHandler(async (req, res) => {
     const deletedDoc = await Model.findByIdAndDelete(req.params.id);
+    res.status(200).json({ data: 'user was deleted' });
+
     if (!deletedDoc) {
       return res.status(404).json({ message: 'Document not found' });
     }
@@ -54,3 +56,4 @@ exports.deleteOne = (Model) =>
     }
     res.status(204).end();
   });
+

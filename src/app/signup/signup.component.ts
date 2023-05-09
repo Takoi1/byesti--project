@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { RegisterService } from '../auth/register.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private service:RegisterService){
+  test=false
+  router: any;
+  constructor(private service:RegisterService , private route:Router){
 
   }
 
@@ -16,8 +20,19 @@ myForm = new FormGroup({
   lastname: new FormControl(''),
   email : new FormControl(''),
   password : new FormControl(''),
-  liste : new FormControl('')
+  liste : new FormControl(''),
+  matricule:new FormControl('')
 })
+
+
+mat(){
+  if (this.myForm.value.liste==="business"){
+    return this.test=true
+  }
+  return this.test=false
+
+
+}
 sub(){
   console.log(this.myForm.value)
   this.service.signup(this.myForm.value).subscribe((data:any)=>{
@@ -38,7 +53,6 @@ get control():any
 opt=false
 selectedDay: string = '';
 
-//event handler for the select element's change event
 
  selectChangeHandler (event: any) {
   //update the ui
