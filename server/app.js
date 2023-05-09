@@ -32,13 +32,13 @@ app.use(cors(corsOptions))
 // Import Routes
 
 const userRoutes = require("./routes/user")
-
+const cartRoutes= require("./routes/cart")
 
 // use routes
 app.use("/api",userRoutes)
 app.use("/product",productRoutes)
 app.use("/getimage",express.static('./uploads'));
-
+app.use("/cart",cartRoutes)
 
 
 const port = process.env.PORT || 5000
