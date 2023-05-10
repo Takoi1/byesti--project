@@ -1,3 +1,4 @@
+// import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardComponent } from './card/card.component';
@@ -7,9 +8,8 @@ import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { GuardroleGuard } from './guardrole.guard';
-// import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
-// import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
-// import { ManageCommandsComponent } from './admin/manage-commands/manage-commands.component';
+import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
+import { ManageCommandsComponent } from './admin/manage-commands/manage-commands.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UnhotorizedComponent } from './unhotorized/unhotorized.component';
 import { CompanyComponent } from './company/company.component';
@@ -20,46 +20,54 @@ import { NotFoundError } from 'rxjs';
 const routes: Routes = [
 
   {
-    path:"signin",component:SiginComponent
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },{
+    path: "signin", component: SiginComponent
   },
   {
-    path:"signup",component:SignupComponent
+    path: "signup", component: SignupComponent
   },
   {
-    path:"",component:HomeComponent
+    path: "home", component: HomeComponent
   },
   {
-    path:"card",component:CardComponent
+    path: "card", component: CardComponent
   },
   {
-    path:"user/:id",component:UserProfileComponent
+    path: "user/:id", component: UserProfileComponent
   },
   {
-    path:"vendor",component:VendorComponent,canActivate: [GuardroleGuard],data: { requiredRole: ['business'] } 
+    path: "vendor", component: VendorComponent, canActivate: [GuardroleGuard], data: { requiredRole: ['business'] }
   },
 
   // {
-  //   // path:"admin/product",component:ManageProductsComponent,canActivate: [GuardroleGuard],data: { requiredRole: ['admin'] } 
+  //   // path: "admin/product", component: ManageProductsComponent,  data: { requiredRole: ['admin'] }
+  //   // canActivate: [GuardroleGuard],
   // },
   // {
-  //   // path:"admin/user",component:ManageUsersComponent,canActivate: [GuardroleGuard],data: { requiredRole: ['admin'] } 
+  //   // path: "admin/user", component: ManageUsersComponent, canActivate: [GuardroleGuard], data: { requiredRole: ['admin'] }
   // },
   // {
-  //   // path:"admin/commande",component:ManageCommandsComponent,canActivate: [GuardroleGuard],data: { requiredRole: ['admin'] } 
+  //   // path: "admin/commande", component: ManageCommandsComponent,  data: { requiredRole: ['admin'] }
+  //   // canActivate: [GuardroleGuard],
   // },
   {
-    path:"auth",component:UnhotorizedComponent
+    path: "auth", component: UnhotorizedComponent
   },
   {
-    path:"company",component:CompanyComponent
+    path: "company", component: CompanyComponent
   },
 
   // path:"vendor",component:VendorComponent
   {
-    path:"detailProduct/:id",component:DetailProductComponent
+    path: "detailProduct/:id", component: DetailProductComponent
   },
+
+  { path: 'admin', canActivate: [GuardroleGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) ,data: { requiredRole: ['admin'] }},
   {
-    path:"**",component:NotFoundComponent
+    path: "**", component: NotFoundComponent
   },
 ];
 

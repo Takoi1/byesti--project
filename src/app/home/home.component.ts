@@ -24,4 +24,14 @@ ngOnInit(): void {
 getProductById(id:any){
   this.route.navigate(['detailProduct/'+id])
 }
+
+addProductToCart(product:any){
+  //add product to cart and to database
+  this._data.addToCart(product).subscribe(
+    res=>{
+      console.log(res);
+      this.ngOnInit();
+    }
+  )
+}
 }

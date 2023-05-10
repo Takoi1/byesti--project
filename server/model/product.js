@@ -32,12 +32,13 @@ const Product = mongoose.model('Product',{
     status: {
     type:Boolean,
     default: false
-   },
-    image: {
-    type:String
-},
-tags: {
-    type:Array
-}
-})
+  },
+  
+  image: String,
+  tags: [String]
+});
+
+// const Product = mongoose.model('Product', productSchema)
+
+
 module.exports = Product;

@@ -16,18 +16,20 @@ import { ProductComponent } from './product/product.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { CookieService } from 'ngx-cookie-service';
-import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
-// import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+
 import { ManageCommandsComponent } from './admin/manage-commands/manage-commands.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UnhotorizedComponent } from './unhotorized/unhotorized.component';
 import { FooterComponent } from './footer/footer.component';
 import { CompanyComponent } from './company/company.component';
-import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+// import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
+import { ManageUserComponent } from './admin/manage-user/manage-user.component';
 
 
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { DetailProductComponent } from './product/detail-product/detail-product.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +43,13 @@ import { DetailProductComponent } from './product/detail-product/detail-product.
     VendorComponent,
     ProductComponent,
     UpdateProductComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    ManageProductsComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
